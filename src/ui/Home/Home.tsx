@@ -1,9 +1,18 @@
-
 import { Link } from "lucide-react"
 import Input from "../Input/Input"
 import Button from "./Button"
+import { FormEvent, useState } from "react"
+import { shortenUrl } from "../../lib/requests"
 
 const Home = () => {
+  const [originalUrl, setOriginalUrl] = useState<string>('')
+  const [shortUrl, setShortUrl] = useState<string>('')
+
+  const handleShorten = (e: FormEvent) => {
+    e.preventDefault()
+    shortenUrl(originalUrl).then(res => console.log(res))
+  }
+
   return (
     <section id="home" className="max-w-md w-full space-y-8 mb-12">
       <div>
@@ -11,9 +20,9 @@ const Home = () => {
           Shorten your URL
         </h2>
         <p className="mt-2 text-center text-sm text-gray-500">Enter a long URL to get a short link</p>
-        <form className="flex flex-col items-center mt-6 space-y-4">
+        <form onSubmit={handleShorten} className="flex flex-col items-center mt-6 space-y-4">
           <div className="w-full rounded-md shadow-sm">
-            <Input />
+            <Input value={originalUrl} onChange={(e) => setOriginalUrl(e.target.value)} />
           </div>
           <div className="w-full">
             <Button type="submit">

@@ -1,8 +1,11 @@
-import Header from "./components/Header/Header"
-import Home from "./components/Home/Home"
+import { useState } from "react"
+import Header from "./ui/Header/Header"
+import Home from "./ui/Home/Home"
+
+export type Language = 'en' | 'es'
 
 function App() {
-
+  const [lang, setLang] = useState<Language>('en')
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-100 to-blue-100">
