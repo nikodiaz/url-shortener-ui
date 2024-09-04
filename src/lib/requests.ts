@@ -10,7 +10,7 @@ export const shortenUrl = async (originalUrl: string) => {
     })
     const data = await response.json()
 
-    return data
+    return data.shortUrl
 
   } catch (e) {
     console.error('No se pudo acortar la URL:', e)

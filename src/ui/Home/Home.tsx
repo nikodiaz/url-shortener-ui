@@ -3,6 +3,7 @@ import Input from "../Input/Input"
 import Button from "./Button"
 import { FormEvent, useState } from "react"
 import { shortenUrl } from "../../lib/requests"
+import Clipboard from "./Clipboard"
 
 const Home = () => {
   const [originalUrl, setOriginalUrl] = useState<string>('')
@@ -10,7 +11,8 @@ const Home = () => {
 
   const handleShorten = (e: FormEvent) => {
     e.preventDefault()
-    shortenUrl(originalUrl).then(res => console.log(res))
+    shortenUrl(originalUrl).then(res => setShortUrl(res))
+    console.log(shortUrl)
   }
 
   return (
@@ -25,7 +27,7 @@ const Home = () => {
             <Input value={originalUrl} onChange={(e) => setOriginalUrl(e.target.value)} />
           </div>
           <div className="w-full">
-            <Button type="submit">
+            <Button rounded="rounded-md" color="bg-blue-700" size="full" type="submit">
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                 <Link className="h-5 w-5 text-blue-500 group-hover:text-blue-400" aria-hidden="true" />
               </span>
@@ -33,6 +35,11 @@ const Home = () => {
             </Button>
           </div>
         </form>
+        {
+          shortUrl && (
+            <Clipboard shortUrl={shortUrl} />
+          )
+        }
       </div>
     </section>
   )

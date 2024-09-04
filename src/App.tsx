@@ -1,4 +1,5 @@
 import { useState } from "react"
+//import translations from './lib/translations.json'
 import Header from "./ui/Header/Header"
 import Home from "./ui/Home/Home"
 
