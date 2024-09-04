@@ -1,38 +1,17 @@
 {
   "en": {
     "title": "URL Shortener",
-    "home": "Home",
-    "about": "About",
     "shortenTitle": "Shorten your URL",
     "shortenDescription": "Enter a long URL to get a short link",
     "enterUrl": "Enter your URL here",
     "shortenButton": "Shorten URL",
-    "shortUrlTitle": "Your shortened URL:",
-    "aboutTitle": "About Our Service",
-    "fastTitle": "Lightning Fast",
-    "fastDescription": "Our URL shortener provides instant results, allowing you to share your links quickly and efficiently.",
-    "secureTitle": "Secure & Reliable",
-    "secureDescription": "We prioritize the security of your links, ensuring they remain active and protected at all times.",
-    "globalTitle": "Global Reach",
-    "globalDescription": "Share your shortened URLs worldwide, expanding your reach and improving link accessibility.",
-    "footer": "© 2023 URL Shortener. All rights reserved."
+    "shortUrlTitle": "Your shortened URL:"
   },
   "es": {
-    "title": "Acortador de URL",
-    "home": "Inicio",
-    "about": "Acerca de",
     "shortenTitle": "Acorta tu URL",
     "shortenDescription": "Ingresa una URL larga para obtener un enlace corto",
     "enterUrl": "Ingresa tu URL aquí",
     "shortenButton": "Acortar URL",
-    "shortUrlTitle": "Tu URL acortada:",
-    "aboutTitle": "Acerca de Nuestro Servicio",
-    "fastTitle": "Rapidez Extrema",
-    "fastDescription": "Nuestro acortador de URL proporciona resultados instantáneos, permitiéndote compartir tus enlaces de forma rápida y eficiente.",
-    "secureTitle": "Seguro y Confiable",
-    "secureDescription": "Priorizamos la seguridad de tus enlaces, asegurando que permanezcan activos y protegidos en todo momento.",
-    "globalTitle": "Alcance Global",
-    "globalDescription": "Comparte tus URLs acortadas en todo el mundo, expandiendo tu alcance y mejorando la accesibilidad de los enlaces.",
-    "footer": "© 2023 Acortador de URL. Todos los derechos reservados."
+    "shortUrlTitle": "Tu URL acortada:"
   }
 }
