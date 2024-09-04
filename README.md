@@ -52,3 +52,15 @@ npm run dev
 
 1. **Ingresar la URL larga:** En la página principal, encontrarás un formulario
    donde puedes ingresar la URL que deseas acortar.
+   ![Formulario de ingreso de url](https://github.com/user-attachments/assets/fd9510a6-2ab4-480b-8a33-23ce04862e3c)
+2. **Obtener la URL corta:** Al enviar el formulario, la URL se acortará y el enlace
+   corto aparecerá en pantalla.
+   ![URL corta generada](https://github.com/user-attachments/assets/052869c2-30ba-4be8-8fd0-7974a7fed162)
+
+## Interacción con la API
+
+Este frontend interactúa con un backend que expone una API para acortar URLs.
+Puedes consultar el código del backend en el siguiente repositorio:
+
+[Repositorio del backend](https://github.com/nikodiaz/url-shortener-api)
+
