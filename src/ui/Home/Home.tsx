@@ -14,11 +14,15 @@ interface Props {
 const Home: FC<Props> = ({ lang }) => {
   const [originalUrl, setOriginalUrl] = useState<string>('')
   const [shortUrl, setShortUrl] = useState<string>('')
+  const [qrCode, setQrCode] = useState<string>('')
 
   const handleShorten = (e: FormEvent) => {
     e.preventDefault()
-    shortenUrl(originalUrl).then(res => setShortUrl(res))
-    console.log(shortUrl)
+    shortenUrl(originalUrl).then(res => {
+      setShortUrl(res.shortUrl)
+      setQrCode(res.qrCode)
+      console.log(res)
+    })
   }
 
   return (
@@ -43,7 +47,9 @@ const Home: FC<Props> = ({ lang }) => {
         </form>
         {
           shortUrl && (
-            <Clipboard shortUrl={shortUrl} />
+            <div>
+              <Clipboard shortUrl={shortUrl} qrCode={qrCode} />
+            </div>
           )
         }
       </div>

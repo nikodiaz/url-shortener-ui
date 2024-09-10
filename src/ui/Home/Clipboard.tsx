@@ -4,9 +4,10 @@ import { FC } from "react"
 
 interface Props {
   shortUrl: string
+  qrCode: string
 }
 
-const Clipboard: FC<Props> = ({ shortUrl }) => {
+const Clipboard: FC<Props> = ({ shortUrl, qrCode }) => {
   return (
     <div className="p-4 bg-white rounded-lg shadow-md mt-8">
       <h3 className="text-lg font-medium text-gray-900">Your shortened URL:</h3>
@@ -18,6 +19,7 @@ const Clipboard: FC<Props> = ({ shortUrl }) => {
         >{shortUrl}</a>
         <Button color="bg-pink-100" rounded="rounded-full" size="icon"><Copy className="text-pink-600" /></Button>
       </div>
+      <img className="mx-auto" src={qrCode} alt="QR Code" />
     </div>
   )
 }
