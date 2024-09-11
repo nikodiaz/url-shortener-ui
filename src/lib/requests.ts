@@ -1,7 +1,9 @@
+const API = process.env.API_URL
+
 export const shortenUrl = async (originalUrl: string) => {
   try {
     console.log('Enviando URL:', originalUrl);
-    const response = await fetch('http://localhost:3000/api/shorten', {
+    const response = await fetch(`${API}/api/shorten`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
