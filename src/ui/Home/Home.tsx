@@ -34,7 +34,12 @@ const Home: FC<Props> = ({ lang }) => {
         <p className="mt-2 text-center text-sm text-gray-500">{translations[lang].shortenDescription}</p>
         <form onSubmit={handleShorten} className="flex flex-col items-center mt-6 space-y-4">
           <div className="w-full rounded-md shadow-sm">
-            <Input placeholder={translations[lang].enterUrl} value={originalUrl} onChange={(e) => setOriginalUrl(e.target.value)} />
+            <Input placeholder={translations[lang].enterUrl}
+              rounded="top"
+              type="url"
+              value={originalUrl}
+              onChange={(e) => setOriginalUrl(e.target.value)}
+            />
           </div>
           <div className="w-full">
             <Button rounded="rounded-md" color="bg-blue-700" size="full" type="submit">
