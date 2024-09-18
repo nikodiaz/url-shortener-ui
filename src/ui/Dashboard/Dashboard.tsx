@@ -18,8 +18,8 @@ const Dashboard = () => {
   }, [])
 
   return (
-    <section className="flex flex-col gap-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section className="flex flex-col gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Stat title="Visitas totales" stat={totalVisits} color="blue" />
         <Stat title="Enlaces guardados" stat={links.length} color="green" />
       </div>

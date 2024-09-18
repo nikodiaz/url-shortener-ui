@@ -10,8 +10,8 @@ interface Props {
 const DashboardHeader: FC<Props> = ({ toggleLanguage, onMenuClick }) => {
   return (
     <header className="bg-white shadow-md">
-      <div className="flex justify-between items-center max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-2xl font-bold text-blue-800">Dashboard</h1>
+      <div className="flex justify-between items-center max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-xl font-bold text-blue-800">Dashboard</h1>
         <div>
           <Button
             size="icon"

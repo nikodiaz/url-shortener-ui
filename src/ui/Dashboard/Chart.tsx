@@ -29,7 +29,7 @@ const Chart: FC<Props> = ({ links }) => {
 
     const dateFormat: { [key in Period]: Intl.DateTimeFormatOptions } = {
       "7days": { weekday: "short" },
-      "1month": { day: "numeric", month: "short" },
+      "1month": { day: "numeric" },
       "1year": { month: "short" },
     }
 
@@ -66,8 +66,8 @@ const Chart: FC<Props> = ({ links }) => {
   }
 
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg">
-      <div className="flex items-center justify-between mb-4">
+    <div className="p-4 md:p-6 bg-white shadow-md rounded-lg">
+      <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
         <h2 className="text-gray-700 text-2xl font-bold">Visitas por período</h2>
         <select
           className="outline-none bg-white p-2 rounded-lg border border-gray-200"
@@ -81,8 +81,11 @@ const Chart: FC<Props> = ({ links }) => {
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis allowDecimals={false} />
+          <XAxis dataKey="date"
+            tick={{ fontSize: 12 }}
+            interval={'equidistantPreserveStart'}
+          />
+          <YAxis width={20} allowDecimals={false} tick={{ fontSize: 12 }} />
           <Tooltip />
           <Bar dataKey="visits" fill="#3b82f6" />
         </BarChart>

@@ -17,7 +17,7 @@ const DashboardLayout: FC<Props> = ({ toggleLanguage }) => {
       <DashboardHeader toggleLanguage={toggleLanguage} onMenuClick={toggleMenuOpen} />
       <div className="flex-grow flex overflow-hidden">
         <Sidebar open={open} onClose={() => setOpen(false)} />
-        <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto">
+        <main className="flex-1 p-4 overflow-y-auto">
           <Outlet />
         </main>
       </div>

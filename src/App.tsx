@@ -6,6 +6,7 @@ import SignIn from "./ui/SignIn/SignIn"
 import MainLayout from "./ui/layouts/MainLayout"
 import DashboardLayout from "./ui/layouts/DashboardLayout"
 import Dashboard from "./ui/Dashboard/Dashboard"
+import Links from "./ui/Links/Links"
 
 export type Language = 'en' | 'es'
 
@@ -27,6 +28,7 @@ function App() {
 
         <Route element={<DashboardLayout toggleLanguage={toggleLanguage} />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/my-links" element={<Links />} />
         </Route>
       </Routes>
     </>
