@@ -15,11 +15,13 @@ const Home: FC<Props> = ({ lang }) => {
   const [originalUrl, setOriginalUrl] = useState<string>('')
   const [shortUrl, setShortUrl] = useState<string>('')
   const [qrCode, setQrCode] = useState<string>('')
+  const API = import.meta.env.VITE_API_URL
 
   const handleShorten = (e: FormEvent) => {
     e.preventDefault()
     shortenUrl(originalUrl).then(res => {
       setShortUrl(res.shortUrl)
+      console.log(res)
       setQrCode(res.qrCode)
     })
   }
@@ -52,7 +54,7 @@ const Home: FC<Props> = ({ lang }) => {
         {
           shortUrl && (
             <div>
-              <Clipboard shortUrl={shortUrl} qrCode={qrCode} />
+              <Clipboard shortUrl={`${API}/${shortUrl}`} qrCode={qrCode} />
             </div>
           )
         }

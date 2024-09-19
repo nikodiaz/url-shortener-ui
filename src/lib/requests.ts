@@ -7,6 +7,9 @@ export const shortenUrl = async (originalUrl: string) => {
   try {
     const response = await fetch(`${API}/api/shorten`, {
       method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ originalUrl })
     })
     const data = await response.json()
