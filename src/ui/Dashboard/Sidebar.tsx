@@ -16,7 +16,7 @@ const Sidebar = ({ open, onClose }: Props) => {
               className='flex items-center py-2 px-4 w-full text-white rounded-md bg-[#353535]'
             >
               <BarChart2 className="mr-3 h-5 w-5" />
-              Dashboard
+              Panel de control
             </button>
           </Link>
           <Link to="/dashboard/my-links" onClick={onClose}>
@@ -24,7 +24,7 @@ const Sidebar = ({ open, onClose }: Props) => {
               className='flex items-center py-2 px-4 w-full text-white rounded-md bg-[#353535] mt-4'
             >
               <LinkIcon className="mr-3 h-5 w-5" />
-              My Links
+              Mis enlaces
             </button>
           </Link>
         </div>
@@ -33,7 +33,7 @@ const Sidebar = ({ open, onClose }: Props) => {
             className='flex items-center py-2 px-4 w-full text-white rounded-md bg-[#353535]'
           >
             <LogOut className="mr-3 h-5 w-5" />
-            Logout
+            Cerrar sesión
           </button>
         </Link>
       </nav>

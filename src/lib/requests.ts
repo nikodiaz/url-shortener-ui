@@ -3,13 +3,14 @@ import Cookies from "js-cookie"
 const API = import.meta.env.VITE_API_URL
 const token = Cookies.get("UserToken")
 
-export const shortenUrl = async (originalUrl: string) => {
+export const shortenUrl = async (originalUrl: string, token?: string) => {
+
+  const headers = token ? { Authorization: `Bearer ${token}`, "Content-Type": "application/json" } : { "Content-Type": "application/json" }
+
   try {
     const response = await fetch(`${API}/api/shorten`, {
       method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headers,
       body: JSON.stringify({ originalUrl })
     })
     const data = await response.json()

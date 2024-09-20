@@ -21,7 +21,7 @@ const Dashboard = () => {
     <section className="flex flex-col gap-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Stat title="Visitas totales" stat={totalVisits} color="blue" />
-        <Stat title="Enlaces guardados" stat={links.length} color="green" />
+        <Stat title="Enlaces guardados" stat={links ? links.length : 0} color="green" />
       </div>
       <Chart links={links} />
     </section>
