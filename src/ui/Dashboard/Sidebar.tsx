@@ -8,7 +8,7 @@ interface Props {
 
 const Sidebar = ({ open, onClose }: Props) => {
   return (
-    <aside className={`bg-white w-64 shadow-md transform ${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out fixed md:static top-0 left-0 bottom-0 z-50`}>
+    <aside className={`bg-white w-64 shadow-md transform ${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out fixed md:static top-0 left-0 bottom-0 z-40`}>
       <nav className="h-full flex flex-col justify-between p-4">
         <div className="space-y-4">
           <Link to="/dashboard" onClick={onClose}>

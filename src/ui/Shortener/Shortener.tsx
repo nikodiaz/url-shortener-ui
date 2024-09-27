@@ -1,15 +1,20 @@
 import { Copy, Link, QrCode, Share2 } from "lucide-react"
 import Cookies from "js-cookie"
-import Input from "../Input/Input"
+import Input from "../Common/Input/Input"
 import { shortenUrl } from "../../lib/requests"
 import { FormEvent, useState } from "react"
+import Modal from "../Common/Modal/Modal"
+import ShareLink from "../Common/Modal/ShareLink"
 
 const Shortener = () => {
   const [originalUrl, setOriginalUrl] = useState<string>('')
   const [shortUrl, setShortUrl] = useState<string>('')
   const [qrCode, setQrCode] = useState<string>('')
+  const [modal, setModal] = useState<boolean>(false)
   const API = import.meta.env.VITE_API_URL
   const token = Cookies.get("UserToken")
+
+  const toggle = () => setModal(!modal)
 
   const handleShorten = (e: FormEvent) => {
     e.preventDefault()
@@ -46,14 +51,18 @@ const Shortener = () => {
             <button className="flex items-center justify-evenly gap-2 p-2 border rounded-md shadow-sm">
               <QrCode className="w-5 h-5" />Ver QR
             </button>
-            <button className="flex items-center justify-evenly gap-2 p-2 border rounded-md shadow-sm">
+            <button
+              onClick={toggle}
+              className="flex items-center justify-evenly gap-2 p-2 border rounded-md shadow-sm">
               <Share2 className="w-5 h-5" />Compartir
             </button>
-
           </div>
         </div>
 
       )}
+      <Modal close={toggle} show={modal}>
+        <ShareLink />
+      </Modal>
     </section>
   )
 }

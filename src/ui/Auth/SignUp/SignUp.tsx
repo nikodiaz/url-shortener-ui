@@ -1,9 +1,9 @@
 import { FormEvent, useState } from "react"
 import Cookies from "js-cookie"
-import Input from "../Input/Input"
-import Button from "../Home/Button"
+import Input from "../../Common/Input/Input"
+import Button from "../../Home/Button"
 import { Link, useNavigate } from "react-router-dom"
-import { signup } from "../../lib/requests"
+import { signup } from "../../../lib/requests"
 
 const SignUp = () => {
   const [username, setUsername] = useState<string>("")

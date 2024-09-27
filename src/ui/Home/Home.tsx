@@ -1,5 +1,5 @@
 import { Link } from "lucide-react"
-import Input from "../Input/Input"
+import Input from "../Common/Input/Input"
 import Button from "./Button"
 import { FC, FormEvent, useState } from "react"
 import { shortenUrl } from "../../lib/requests"

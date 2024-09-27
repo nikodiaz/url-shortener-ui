@@ -15,7 +15,7 @@ const Dashboard = () => {
     totalLinksByUser().then(res => {
       setLinks(res.links)
     })
-  }, [])
+  }, [links])
 
   return (
     <section className="flex flex-col gap-4">
@@ -23,7 +23,9 @@ const Dashboard = () => {
         <Stat title="Visitas totales" stat={totalVisits} color="blue" />
         <Stat title="Enlaces guardados" stat={links ? links.length : 0} color="green" />
       </div>
-      <Chart links={links} />
+      {links && (
+        <Chart links={links} />
+      )}
     </section>
   )
 }

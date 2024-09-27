@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { totalLinksByUser } from "../../lib/requests"
 import { QrCode, Share2 } from "lucide-react"
-import Tooltip from "../Tooltip/Tooltip"
+import Tooltip from "../Common/Tooltip/Tooltip"
 
 const Links = () => {
   const [links, setLinks] = useState([])
