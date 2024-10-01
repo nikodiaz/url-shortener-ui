@@ -1,6 +1,6 @@
 const QRCode = ({ qrCode }: { qrCode: string }) => {
   return (
-    <div>
+    <div className="flex justify-center">
       <img src={qrCode} />
     </div>
   )

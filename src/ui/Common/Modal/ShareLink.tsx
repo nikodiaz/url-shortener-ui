@@ -6,9 +6,9 @@ const ShareLink = ({ url, qr }: { url: string, qr: string }) => {
   const [copied, setCopied] = useState<boolean>(false)
 
   const options = [
-    { name: "X", bg: "bg-gray-900", hover: "hover: bg-black" },
-    { name: "Facebook", bg: "bg-[#4267b2]", hover: "hover: bg-[#365899]" },
-    { name: "WhatsApp", bg: "bg-[#25d366]", hover: "hover: bg-[#12cc72]" },
+    { name: "X", bg: "bg-gray-900", hover: "hover:bg-black" },
+    { name: "Facebook", bg: "bg-[#4267b2]", hover: "hover:bg-[#365899]" },
+    { name: "WhatsApp", bg: "bg-[#25d366]", hover: "hover:bg-[#12cc72]" },
   ]
 
   const handleShare = (platform: string) => {
@@ -46,21 +46,22 @@ const ShareLink = ({ url, qr }: { url: string, qr: string }) => {
   }
 
   return (
-    <main className="flex flex-col justify-evenly gap-4 py-8">
-      <div className="flex items-center justify-evenly gap-4">
+    <main className="flex flex-col justify-evenly gap-6 py-4 px-2 sm:py-8 sm:px-4">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         {options.map((option: { name: string, bg: string, hover: string }) => (
           <button
             key={option.name}
             onClick={() => handleShare(option.name)}
-            className={`flex items-center justify-center px-4 py-2 min-w-24 ${option.bg} ${option.hover} text-white rounded-lg transition-colors duration-300`}
+            className={`flex items-center justify-center px-4 py-2 w-full sm:w-auto ${option.bg} ${option.hover} text-white rounded-lg transition-colors duration-300`}
           >
             {option.name}
           </button>
         ))}
         <button
           onClick={handleCopy}
-          className="relative flex items-center gap-2 px-4 py-2 min-w-24 bg-gray-300 shadow-md rounded">
-          <span className={`absolute -top-8 right-5 p-1 ${copied ? 'inline-block' : 'hidden'} text-xs text-white font-thin bg-[#353535] rounded-sm`}>
+          className="relative flex items-center justify-center gap-2 px-4 py-2 w-full sm:w-auto bg-gray-300 hover:bg-gray-400 shadow-md rounded-lg transition-colors duration-300"
+        >
+          <span className={`absolute -top-8 left-1/2 transform -translate-x-1/2 p-1 ${copied ? 'inline-block' : 'hidden'} text-xs text-white font-thin bg-[#353535] rounded-sm whitespace-nowrap`}>
             ¡Copiado!
           </span>
           Copiar
@@ -68,21 +69,24 @@ const ShareLink = ({ url, qr }: { url: string, qr: string }) => {
         </button>
       </div>
 
-      <div className="flex flex-col items-center">
-        <QRCode qrCode={qr} />
-
-        <div className="flex gap-2">
-          <button
-            onClick={handleDownloadQR}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300"
-          >
-            Descargar QR
-            <Download className="w-4 h-4" />
-          </button>
-
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-full max-w-[250px] mx-auto">
+          <QRCode qrCode={qr} />
         </div>
+
+        <button
+          onClick={handleDownloadQR}
+          className="flex items-center justify-center gap-2 px-4 py-2 w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300"
+        >
+          Descargar QR
+          <Download className="w-4 h-4" />
+        </button>
       </div>
-    </main >
+
+      <div className="text-center text-sm text-gray-600 mt-4">
+        <p>Enlace corto: <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline break-all">{url}</a></p>
+      </div>
+    </main>
   )
 }
 
