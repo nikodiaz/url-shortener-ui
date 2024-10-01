@@ -31,7 +31,7 @@ const Clipboard: FC<Props> = ({ shortUrl, qrCode }) => {
           rounded="rounded-full"
           size="icon">
           <span className={`absolute -top-8 -right-2 p-1 ${copied ? 'inline-block' : 'hidden'} text-xs font-thin bg-[#353535] rounded-sm`}>
-            ¡Copied!
+            ¡Copiado!
           </span>
           <Copy className="text-pink-600" />
         </Button>

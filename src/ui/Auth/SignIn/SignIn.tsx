@@ -14,7 +14,6 @@ const SignIn = () => {
     e.preventDefault()
     console.log(email, password)
     signin(email, password).then(res => {
-      console.log(res)
       Cookies.set("UserToken", res.token)
       navigate("/dashboard")
     })
@@ -31,7 +30,7 @@ const SignIn = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-          <Input placeholder="Password"
+          <Input placeholder="Contraseña"
             rounded="bottom"
             type="password"
             value={password}
@@ -41,12 +40,12 @@ const SignIn = () => {
 
         <div>
           <Button rounded="rounded-md" size="full" color="bg-blue-700" type="submit">
-            Log In
+            Iniciar sesión
           </Button>
         </div>
 
         <div className="text-sm text-center">
-          <p>Don't have an account? <Link className="text-blue-600" to="/signup">Register</Link></p>
+          <p>No tienes una cuenta? <Link className="text-blue-600" to="/signup">Registrate</Link></p>
         </div>
       </form>
 

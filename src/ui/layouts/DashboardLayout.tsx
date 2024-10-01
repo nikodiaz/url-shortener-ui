@@ -1,11 +1,10 @@
 import { Outlet } from "react-router-dom"
 import DashboardHeader from "../Header/DashboardHeader"
-import { FC, useState } from "react"
+import { useState } from "react"
 import Sidebar from "../Dashboard/Sidebar"
 
-interface Props { toggleLanguage: () => void }
 
-const DashboardLayout: FC<Props> = ({ toggleLanguage }) => {
+const DashboardLayout = () => {
   const [open, setOpen] = useState<boolean>(true)
 
   const toggleMenuOpen = () => {
@@ -14,7 +13,7 @@ const DashboardLayout: FC<Props> = ({ toggleLanguage }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-100 to-blue-100">
-      <DashboardHeader toggleLanguage={toggleLanguage} onMenuClick={toggleMenuOpen} />
+      <DashboardHeader onMenuClick={toggleMenuOpen} />
       <div className="flex-grow flex overflow-hidden">
         <Sidebar open={open} onClose={() => setOpen(false)} />
         <main className="flex-1 p-4 overflow-y-auto">

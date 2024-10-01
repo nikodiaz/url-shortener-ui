@@ -1,17 +1,13 @@
 import { Link } from "lucide-react"
 import Input from "../Common/Input/Input"
 import Button from "./Button"
-import { FC, FormEvent, useState } from "react"
+import { FormEvent, useState } from "react"
 import { shortenUrl } from "../../lib/requests"
 import Clipboard from "./Clipboard"
-import { Language } from "../../App"
-import translations from '../../lib/translations.json'
 
-interface Props {
-  lang: Language
-}
 
-const Home: FC<Props> = ({ lang }) => {
+
+const Home = () => {
   const [originalUrl, setOriginalUrl] = useState<string>('')
   const [shortUrl, setShortUrl] = useState<string>('')
   const [qrCode, setQrCode] = useState<string>('')
@@ -30,12 +26,12 @@ const Home: FC<Props> = ({ lang }) => {
     <section id="home" className="max-w-lg space-y-8 mb-12">
       <div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          {translations[lang].shortenTitle}
+          Acorta tu URL
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-500">{translations[lang].shortenDescription}</p>
+        <p className="mt-2 text-center text-sm text-gray-500">Ingresa una URL larga para obtener un enlace corto</p>
         <form onSubmit={handleShorten} className="flex flex-col items-center sm:w-96 mt-6 space-y-4">
           <div className="w-full rounded-md shadow-sm">
-            <Input placeholder={translations[lang].enterUrl}
+            <Input placeholder="Ingresa tu URL aquí"
               rounded="top"
               type="url"
               value={originalUrl}
@@ -47,7 +43,7 @@ const Home: FC<Props> = ({ lang }) => {
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                 <Link className="h-5 w-5 text-blue-500 group-hover:text-blue-400" aria-hidden="true" />
               </span>
-              {translations[lang].shortenButton}
+              Acortar URL
             </Button>
           </div>
         </form>

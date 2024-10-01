@@ -15,7 +15,6 @@ const SignUp = () => {
     e.preventDefault()
     console.log(username, email, password)
     signup(username, email, password).then(res => {
-      console.log(res)
       Cookies.set("UserToken", res.token)
       navigate("/dashboard")
     })
@@ -26,7 +25,7 @@ const SignUp = () => {
       <h2 className="text-2xl font-bold pb-4">Create an account</h2>
       <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
         <div>
-          <Input placeholder="Username"
+          <Input placeholder="Usuario"
             rounded="top"
             type="text"
             value={username}
@@ -38,7 +37,7 @@ const SignUp = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-          <Input placeholder="Password"
+          <Input placeholder="Contraseña"
             rounded="bottom"
             type="password"
             value={password}
@@ -48,12 +47,12 @@ const SignUp = () => {
 
         <div>
           <Button rounded="rounded-md" size="full" color="bg-blue-700" type="submit">
-            Register
+            Registrate
           </Button>
         </div>
 
         <div className="text-sm text-center">
-          <p>Already have an account? <Link className="text-blue-600" to="/signin">Log In</Link></p>
+          <p>Ya tienes una cuenta? <Link className="text-blue-600" to="/signin">Inicia sesión</Link></p>
         </div>
       </form>
 

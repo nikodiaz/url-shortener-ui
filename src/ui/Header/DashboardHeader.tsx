@@ -1,27 +1,17 @@
-import { Languages, Menu } from "lucide-react"
+import { Menu } from "lucide-react"
 import Button from "../Home/Button"
 import { FC } from "react"
 
 interface Props {
-  toggleLanguage: () => void
   onMenuClick: () => void
 }
 
-const DashboardHeader: FC<Props> = ({ toggleLanguage, onMenuClick }) => {
+const DashboardHeader: FC<Props> = ({ onMenuClick }) => {
   return (
     <header className="bg-white shadow-md">
       <div className="flex justify-between items-center max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
         <h1 className="text-xl font-bold text-blue-800">Dashboard</h1>
         <div>
-          <Button
-            size="icon"
-            color="bg-white"
-            rounded="full"
-            onClick={toggleLanguage}
-          >
-            <Languages className="h-5 w-5 text-blue-700" />
-            <span className="sr-only">Cambiar idioma</span>
-          </Button>
           <div className="inline-block sm:hidden">
             <Button
               size="icon"
