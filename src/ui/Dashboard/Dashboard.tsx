@@ -6,16 +6,26 @@ import Stat from "./Stat"
 const Dashboard = () => {
   const [totalVisits, setTotalVisits] = useState<number>(0)
   const [links, setLinks] = useState([])
+  const [loading, setLoading] = useState<boolean>(true)
 
 
   useEffect(() => {
-    totalVisitsByUser().then(res => {
-      setTotalVisits(res.totalVisits)
-    })
-    totalLinksByUser().then(res => {
-      setLinks(res.links)
-    })
-  }, [links])
+    const fetchData = async () => {
+      try {
+        const visitRes = await totalVisitsByUser()
+        setTotalVisits(visitRes.totalVisits)
+
+        const linksRes = await totalLinksByUser()
+        setLinks(linksRes.links)
+      } catch (error) {
+        console.error("Error fetching data", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   return (
     <section className="flex flex-col gap-4">
@@ -23,7 +33,7 @@ const Dashboard = () => {
         <Stat title="Visitas totales" stat={totalVisits} color="blue" />
         <Stat title="Enlaces guardados" stat={links ? links.length : 0} color="green" />
       </div>
-      {links && (
+      {!loading && links.length > 0 && (
         <Chart links={links} />
       )}
     </section>

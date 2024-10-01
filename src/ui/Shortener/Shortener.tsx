@@ -1,4 +1,4 @@
-import { Copy, Link, QrCode, Share2 } from "lucide-react"
+import { Copy, Link, Share2 } from "lucide-react"
 import Cookies from "js-cookie"
 import Input from "../Common/Input/Input"
 import { shortenUrl } from "../../lib/requests"
@@ -20,7 +20,6 @@ const Shortener = () => {
     e.preventDefault()
     shortenUrl(originalUrl, token).then(res => {
       setShortUrl(res.shortUrl)
-      console.log(res)
       setQrCode(res.qrCode)
     })
   }
@@ -48,9 +47,6 @@ const Shortener = () => {
             </button>
           </div>
           <div className="flex items-center justify-center gap-4 text-base font-medium">
-            <button className="flex items-center justify-evenly gap-2 p-2 border rounded-md shadow-sm">
-              <QrCode className="w-5 h-5" />Ver QR
-            </button>
             <button
               onClick={toggle}
               className="flex items-center justify-evenly gap-2 p-2 border rounded-md shadow-sm">
@@ -61,8 +57,9 @@ const Shortener = () => {
 
       )}
       <Modal close={toggle} show={modal}>
-        <ShareLink />
+        <ShareLink qr={qrCode} url={`${API}/${shortUrl}`} />
       </Modal>
+
     </section>
   )
 }
