@@ -1,23 +1,45 @@
-import { useState } from "react"
-import Header from "./ui/Header/Header"
 import Home from "./ui/Home/Home"
+import { Route, Routes } from "react-router-dom"
+import SignUp from "./ui/Auth/SignUp/SignUp"
+import SignIn from "./ui/Auth/SignIn/SignIn"
+import MainLayout from "./ui/layouts/MainLayout"
+import DashboardLayout from "./ui/layouts/DashboardLayout"
+import Dashboard from "./ui/Dashboard/Dashboard"
+import Links from "./ui/Links/Links"
+import Shortener from "./ui/Shortener/Shortener"
+import ProtectedRoute from "./ui/Common/ProtectedRoute/ProtectedRoute"
 
-export type Language = 'en' | 'es'
 
 function App() {
-  const [lang, setLang] = useState<Language>('en')
-
-  const toggleLanguage = () => {
-    setLang(lang === 'en' ? 'es' : 'en')
-  }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-100 to-blue-100">
-      <Header toggleLang={toggleLanguage} />
-      <main className="flex-grow flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <Home lang={lang} />
-      </main>
-    </div>
+    <>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+        </Route>
+
+        <Route element={<DashboardLayout />}>
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/dashboard/my-links" element={
+            <ProtectedRoute>
+              <Links />
+            </ProtectedRoute>
+          } />
+          <Route path="/dashboard/shortener" element={
+            <ProtectedRoute>
+              <Shortener />
+            </ProtectedRoute>
+          } />
+        </Route>
+      </Routes>
+    </>
   )
 }
 

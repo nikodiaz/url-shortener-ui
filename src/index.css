@@ -5,3 +5,23 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 20%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.tooltip-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
