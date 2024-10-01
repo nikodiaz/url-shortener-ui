@@ -7,6 +7,7 @@ import DashboardLayout from "./ui/layouts/DashboardLayout"
 import Dashboard from "./ui/Dashboard/Dashboard"
 import Links from "./ui/Links/Links"
 import Shortener from "./ui/Shortener/Shortener"
+import ProtectedRoute from "./ui/Common/ProtectedRoute/ProtectedRoute"
 
 
 function App() {
@@ -21,9 +22,21 @@ function App() {
         </Route>
 
         <Route element={<DashboardLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/my-links" element={<Links />} />
-          <Route path="/dashboard/shortener" element={<Shortener />} />
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/dashboard/my-links" element={
+            <ProtectedRoute>
+              <Links />
+            </ProtectedRoute>
+          } />
+          <Route path="/dashboard/shortener" element={
+            <ProtectedRoute>
+              <Shortener />
+            </ProtectedRoute>
+          } />
         </Route>
       </Routes>
     </>

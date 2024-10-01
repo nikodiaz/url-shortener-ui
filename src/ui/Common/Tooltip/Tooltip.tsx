@@ -1,7 +1,7 @@
 
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
-const Tooltip = ({ text, children }) => {
+const Tooltip = ({ text, children }: { text: string, children: ReactNode }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const showTooltip = () => setIsVisible(true);
@@ -19,7 +19,7 @@ const Tooltip = ({ text, children }) => {
 
       {isVisible && (
         <div
-          className={`tooltip ${isVisible ? 'tooltip-visible' : ''}`}>
+          className={`tooltip ${isVisible ? 'tooltip-visible z-50' : ''} `}>
           {text}
         </div>
       )}

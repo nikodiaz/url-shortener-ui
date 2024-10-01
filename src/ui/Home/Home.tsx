@@ -17,7 +17,6 @@ const Home = () => {
     e.preventDefault()
     shortenUrl(originalUrl).then(res => {
       setShortUrl(res.shortUrl)
-      console.log(res)
       setQrCode(res.qrCode)
     })
   }

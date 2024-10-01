@@ -13,7 +13,6 @@ const SignUp = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    console.log(username, email, password)
     signup(username, email, password).then(res => {
       Cookies.set("UserToken", res.token)
       navigate("/dashboard")
