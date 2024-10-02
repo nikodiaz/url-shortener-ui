@@ -1,4 +1,4 @@
-import { CircleX, Copy, Facebook, Twitter } from "lucide-react"
+import { CircleX } from "lucide-react"
 import ReactDOM from "react-dom"
 import { FC, ReactNode, useEffect, useState } from "react"
 
