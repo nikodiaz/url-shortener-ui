@@ -52,7 +52,7 @@ const ShareLink = ({ url, qr }: { url: string, qr: string }) => {
           <button
             key={option.name}
             onClick={() => handleShare(option.name)}
-            className={`flex items-center justify-center px-4 py-2 w-full sm:w-auto ${option.bg} ${option.hover} text-white rounded-lg transition-colors duration-300`}
+            className={`flex items-center justify-center min-w-24 px-4 py-2 w-full sm:w-auto ${option.bg} ${option.hover} text-white rounded-lg transition-colors duration-300`}
           >
             {option.name}
           </button>
