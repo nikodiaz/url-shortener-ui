@@ -21,7 +21,7 @@ const SignUp = () => {
 
   return (
     <section className="p-8 max-w-md w-full bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold pb-4">Create an account</h2>
+      <h2 className="text-2xl font-bold pb-4">Crea una cuenta</h2>
       <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
         <div>
           <Input placeholder="Usuario"
