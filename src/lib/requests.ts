@@ -5,12 +5,17 @@ const token = Cookies.get("UserToken")
 
 export const shortenUrl = async (originalUrl: string, token?: string) => {
 
-  const headers = token ? { Authorization: `Bearer ${token}`, "Content-Type": "application/json" } : { "Content-Type": "application/json" }
+  const headers: HeadersInit = {
+    "Content-Type": "application/json",
+  }
 
+  if (token) {
+    headers.Authorization = `Bearer ${token}`
+  }
   try {
     const response = await fetch(`${API}/api/shorten`, {
       method: 'POST',
-      headers: headers,
+      headers,
       body: JSON.stringify({ originalUrl })
     })
     const data = await response.json()
